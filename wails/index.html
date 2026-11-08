@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<title>Wails</title>
+<label>Eingabe: <input id="input" autofocus></label><br>
+<label>Ausgabe: <input id="output"></label>
+<script>
+  const input = document.getElementById("input");
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter" && !event.isComposing) {
+      window.runtime.EventsEmit("input:enter", input.value);
+    }
+  });
+</script>
+</html>
